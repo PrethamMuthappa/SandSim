@@ -2,7 +2,6 @@ package io.sandsim.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.sun.tools.javac.Main;
 import io.sandsim.PhysicsGame;
 
 /** Launches the desktop (LWJGL3) application. */
