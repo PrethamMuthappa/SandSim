@@ -15,5 +15,4 @@ Built using LibGdx with Box2D and Java
 
 or
 
-
-Check the release folder in this repo where you can find the Jar file , dowload it and run ` java -jar sandsim.jar`
+Check the release folder in this repo where you can find the Jar file , download it and run ` java -jar sandsim-1.0.0.jar`
