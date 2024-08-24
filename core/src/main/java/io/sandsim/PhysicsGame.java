@@ -24,11 +24,11 @@ public class PhysicsGame extends ApplicationAdapter {
         debugRenderer = new Box2DDebugRenderer();
         sandParticles = new Array<>();
         camera.update();
-        // ground
+
         createEdge(BodyDef.BodyType.StaticBody, -20, -10f, 20, -10f, 0);
-        // left wall
+
         createEdge(BodyDef.BodyType.StaticBody, -20, -10, -20, 10, 0);
-        // right wall
+
         createEdge(BodyDef.BodyType.StaticBody, 20, -10, 20, 10, 0);
     }
 
@@ -36,7 +36,6 @@ public class PhysicsGame extends ApplicationAdapter {
     @Override
     public void render () {
         try {
-
 
             float delta = Gdx.graphics.getDeltaTime();
 
@@ -97,19 +96,15 @@ public class PhysicsGame extends ApplicationAdapter {
     }
 
     private Body createSandParticle(float x, float y, float radius, float density) {
-        // Define the body
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
         def.position.set(x, y);
 
-        // Create the body
         Body body = world.createBody(def);
 
-        // Create a circle shape for the sand particle
         CircleShape circleShape = new CircleShape();
         circleShape.setRadius(radius);
 
-        // Create a fixture for the body
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circleShape;
         fixtureDef.density = density;
@@ -117,8 +112,6 @@ public class PhysicsGame extends ApplicationAdapter {
         fixtureDef.restitution = 0.1f;
 
         body.createFixture(fixtureDef);
-
-        // Dispose of the shape as we no longer need it
         circleShape.dispose();
 
         return body;
