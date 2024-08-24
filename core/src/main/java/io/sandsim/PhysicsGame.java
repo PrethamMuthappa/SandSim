@@ -6,6 +6,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -25,7 +27,6 @@ public class PhysicsGame extends ApplicationAdapter {
         camera = new OrthographicCamera(50, 25);
         debugRenderer = new Box2DDebugRenderer();
         sandParticles = new Array<>();
-
         camera.update();
         // ground
         createEdge(BodyDef.BodyType.StaticBody, -20, -10f, 20, -10f, 0);
@@ -39,6 +40,8 @@ public class PhysicsGame extends ApplicationAdapter {
     @Override
     public void render () {
         try {
+
+
             float delta = Gdx.graphics.getDeltaTime();
 
             Gdx.gl.glClearColor(.125f, .125f, .125f, 1);
