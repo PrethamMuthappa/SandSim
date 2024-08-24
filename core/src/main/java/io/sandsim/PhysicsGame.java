@@ -17,7 +17,7 @@ public class PhysicsGame extends ApplicationAdapter {
     OrthographicCamera camera;
     Box2DDebugRenderer debugRenderer;
     private float spawnTimer;
-    private final float SPAWN_INTERVAL = 0.05f; // Spawn a new particle every 0.05 seconds
+    private final float SPAWN_INTERVAL = 0.005f; // Spawn a new particle every 0.05 seconds
     private Array<Body> sandParticles;
     @Override
     public void create () {
@@ -43,7 +43,6 @@ public class PhysicsGame extends ApplicationAdapter {
 
             Gdx.gl.glClearColor(.125f, .125f, .125f, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 spawnTimer += delta;
                 if (spawnTimer >= SPAWN_INTERVAL) {
@@ -64,18 +63,17 @@ public class PhysicsGame extends ApplicationAdapter {
                 world.destroyBody(body);
                 sandParticles.removeValue(body, true);
             }
-
             debugRenderer.render(world, camera.combined);
             world.step(1/60f, 8, 3);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     private void spawnSandParticle() {
         Vector3 touchedPoint = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
         camera.unproject(touchedPoint);
-        Body sandParticle = createSandParticle(touchedPoint.x, touchedPoint.y, 0.1f, 1);
+        Body sandParticle = createSandParticle(touchedPoint.x, touchedPoint.y, 0.070f, 1);
         sandParticles.add(sandParticle);
     }
 
